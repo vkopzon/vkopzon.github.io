@@ -62,7 +62,7 @@ version 0.2.0
   <screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
 </assets>
 </extension>
-</addon><addon id="skin.estuary-vko" name="vko-estuary" provider-name="vKo" version="3.0.6">
+</addon><addon id="skin.estuary-vko" name="vko-estuary" provider-name="vKo" version="3.0.7">
 	<requires>
 		<import addon="xbmc.gui" version="5.15.0" />
 	</requires>
