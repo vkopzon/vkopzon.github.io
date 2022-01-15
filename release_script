@@ -1,0 +1,7 @@
+#!/bin/bash
+set -x #echo on
+
+git add --all
+git commit -a -m "$@"
+git tag r3
+git push -u origin main
