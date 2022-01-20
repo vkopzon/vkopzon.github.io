@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.epg.recorder" version="1.0.5" name="EPG Recorder"
+<addon id="plugin.video.epg.recorder" version="1.0.6" name="EPG Recorder"
   provider-name="vKo">
 <requires>
   <import addon="xbmc.python" version="3.0.0" />
@@ -42,20 +42,7 @@ ffmpeg simply copies the stream into a transport stream container.
 <source>https://github.com/Dobi-Dev/plugin.video.epg.recorder</source>
 <forum>https://forum.kodi.tv/showthread.php?tid=329991</forum>
 <language>en fr de</language>
-<news>
-version 0.2.0
-- Compatibility with Kodi Matrix.
-- Add some missing translations.
-- Improve "Sort Channels by" settings.
-- Add channel icon in the record list.
-- Improve encoding detection of the XML TV file.
-- Fix search input not supporting non ascii character.
-- Fix kodi crash on startup when user have rules to renew jobs.
-- Fix and improve "record and play" feature.
-- Reducing default startup time to 20 seconds.
-- Add error messag when trying to access database not created.
-- Exit the service smoothly and fastly if the user request Kodi to exit before the startup delay.
-</news>
+<news>First release note</news>
 <assets>
   <icon>icon.png</icon>
   <screenshot>resources/screenshots/screenshot-00.jpg</screenshot>
