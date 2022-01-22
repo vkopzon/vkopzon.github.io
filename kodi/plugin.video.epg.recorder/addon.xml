@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.epg.recorder" version="1.0.8" name="EPG Recorder"
+<addon id="plugin.video.epg.recorder" version="1.0.9" name="EPG Recorder"
   provider-name="vKo">
 <requires>
   <import addon="xbmc.python" version="3.0.0" />
   <import addon="script.module.xbmcswift2" />
   <import addon="script.module.requests" />
   <import addon="script.module.chardet" />
-  <import addon="script.module.pytz" />
   <import addon="script.module.kodi-six" />
   <import addon="script.module.inputstreamhelper" version="0.5.8"/>
 
 </requires>
 <extension point="xbmc.python.pluginsource" library="main.py">
   <provides>video</provides>
-</extension>
-<extension point="xbmc.python.script" library="default.py">
-    <provides>executable</provides>
 </extension>
 <extension point="kodi.context.item">
 <menu id="kodi.core.main">
@@ -29,7 +25,6 @@
   </item>
 </menu>
 </extension>
-<extension point="xbmc.service" library="server.py" start="login"/>
 <extension point="xbmc.addon.metadata">
   <summary lang="en">Record from IPTV Simple Client or xmltv/m3u with ffmpeg.</summary>
   <description lang="en">
@@ -42,7 +37,12 @@ ffmpeg simply copies the stream into a transport stream container.
 <source>https://github.com/Dobi-Dev/plugin.video.epg.recorder</source>
 <forum>https://forum.kodi.tv/showthread.php?tid=329991</forum>
 <language>en fr de</language>
-<news>more cleanups: xmltv function cleanup</news>
+<news>
+  1. removing server.py, so xmltv is initialized on first invoke only
+  2. introducing get_storage to rescan the xmltv daily
+  3. clean more leftover functions
+  4. removing dafault.py (kodi.script)
+</news>
 <assets>
   <icon>icon.png</icon>
   <screenshot>resources/screenshots/screenshot-00.jpg</screenshot>
