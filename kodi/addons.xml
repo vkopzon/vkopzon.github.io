@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<addons><addon id="plugin.video.epg.recorder" name="EPG Recorder" provider-name="vKo" version="1.0.9">
+<addons><addon id="plugin.video.epg.recorder" name="EPG Recorder" provider-name="vKo" version="1.0.10">
 <requires>
   <import addon="xbmc.python" version="3.0.0" />
   <import addon="script.module.xbmcswift2" />
@@ -37,10 +37,9 @@ ffmpeg simply copies the stream into a transport stream container.
 <forum>https://forum.kodi.tv/showthread.php?tid=329991</forum>
 <language>en fr de</language>
 <news>
-  1. removing server.py, so xmltv is initialized on first invoke only
-  2. introducing get_storage to rescan the xmltv daily
-  3. clean more leftover functions
-  4. removing dafault.py (kodi.script)
+  1. more cleanups of residuals
+  2. Add recently viewed method
+  3. Fixed lutc=now to be calculated on player start
 </news>
 <assets>
   <icon>icon.png</icon>
