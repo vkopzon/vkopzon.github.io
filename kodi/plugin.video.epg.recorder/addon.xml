@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.epg.recorder" version="1.1.3" name="EPG Recorder"
+<addon id="plugin.video.epg.recorder" version="1.1.4" name="EPG Recorder"
   provider-name="vKo">
 <requires>
   <import addon="xbmc.python" version="3.0.0" />
@@ -38,8 +38,7 @@ ffmpeg simply copies the stream into a transport stream container.
 <forum>https://forum.kodi.tv/showthread.php?tid=329991</forum>
 <language>en fr de</language>
 <news>
-  1. fix of xmltv(): loading rel vlad.xml instead of local file :)
-  2. adding image_lib.json to override images from json file
+  1. fix m3u load from xmltv()
   Todo:
   1. prepered (but commnted out restore of playing offset after the recording)
 </news>
