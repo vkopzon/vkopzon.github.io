@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<addons><addon id="plugin.video.epg.recorder" name="EPG Recorder" provider-name="vKo" version="1.1.6">
+<addons><addon id="plugin.video.epg.recorder" name="EPG Recorder" provider-name="vKo" version="1.1.7">
 <requires>
   <import addon="xbmc.python" version="3.0.0" />
   <import addon="script.module.xbmcswift2" />
@@ -37,9 +37,7 @@ ffmpeg simply copies the stream into a transport stream container.
 <forum>https://forum.kodi.tv/showthread.php?tid=329991</forum>
 <language>en fr de</language>
 <news>
-  1. fully removed xmltv() and det rid of sqldb for channel table. Relying on externally generated channel.json from grabber.
-  Todo:
-  1. prepered (but commnted out restore of playing offset after the recording)
+  1. fixed im_lib length check on recordings()
 </news>
 <assets>
   <icon>icon.png</icon>
@@ -228,253 +226,6 @@ ffmpeg simply copies the stream into a transport stream container.
 			<screenshot>resources/screenshot-08.jpg</screenshot>
 		</assets>
 	</extension>
-</addon><addon id="plugin.video.epg.recorder" name="EPG Recorder" provider-name="vKo" version="1.0.11">
-<requires>
-  <import addon="xbmc.python" version="3.0.0" />
-  <import addon="script.module.xbmcswift2" />
-  <import addon="script.module.requests" />
-  <import addon="script.module.chardet" />
-  <import addon="script.module.kodi-six" />
-  <import addon="script.module.inputstreamhelper" version="0.5.8" />
-
-</requires>
-<extension library="main.py" point="xbmc.python.pluginsource">
-  <provides>video</provides>
-</extension>
-<extension point="kodi.context.item">
-<menu id="kodi.core.main">
-  <item library="context.py">
-    <label>IPTV Recorder Timer</label>
-    <visible>Window.isActive(tvchannels)</visible>
-  </item>
-  <item library="contextEPG.py">
-    <label>Record Programme</label>
-    <visible>Window.isActive(tvguide)</visible>
-  </item>
-</menu>
-</extension>
-<extension point="xbmc.addon.metadata">
-  <summary lang="en">Record from IPTV Simple Client or xmltv/m3u with ffmpeg.</summary>
-  <description lang="en">
-Set your recording path and ffmpeg location.
-On Android ffmpeg will be copied to /data/data to be runnable.
-Complex stream handling might need an extra script instead of ffmpeg.
-ffmpeg simply copies the stream into a transport stream container.
-</description>
-<disclaimer lang="en">Make sure recording streams is legal in your country.</disclaimer>
-<source>https://github.com/Dobi-Dev/plugin.video.epg.recorder</source>
-<forum>https://forum.kodi.tv/showthread.php?tid=329991</forum>
-<language>en fr de</language>
-<news>
-  1. more cleanups of residuals
-  2. Add recently viewed method
-  3. Fixed lutc=now to be calculated on player start
-</news>
-<assets>
-  <icon>icon.png</icon>
-  <screenshot>resources/screenshots/screenshot-00.jpg</screenshot>
-  <screenshot>resources/screenshots/screenshot-01.jpg</screenshot>
-  <screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
-</assets>
-</extension>
-</addon><addon id="plugin.video.epg.recorder" name="EPG Recorder" provider-name="vKo" version="1.0.12">
-<requires>
-  <import addon="xbmc.python" version="3.0.0" />
-  <import addon="script.module.xbmcswift2" />
-  <import addon="script.module.requests" />
-  <import addon="script.module.chardet" />
-  <import addon="script.module.kodi-six" />
-  <import addon="script.module.inputstreamhelper" version="0.5.8" />
-
-</requires>
-<extension library="main.py" point="xbmc.python.pluginsource">
-  <provides>video</provides>
-</extension>
-<extension point="kodi.context.item">
-<menu id="kodi.core.main">
-  <item library="context.py">
-    <label>IPTV Recorder Timer</label>
-    <visible>Window.isActive(tvchannels)</visible>
-  </item>
-  <item library="contextEPG.py">
-    <label>Record Programme</label>
-    <visible>Window.isActive(tvguide)</visible>
-  </item>
-</menu>
-</extension>
-<extension point="xbmc.addon.metadata">
-  <summary lang="en">Record from IPTV Simple Client or xmltv/m3u with ffmpeg.</summary>
-  <description lang="en">
-Set your recording path and ffmpeg location.
-On Android ffmpeg will be copied to /data/data to be runnable.
-Complex stream handling might need an extra script instead of ffmpeg.
-ffmpeg simply copies the stream into a transport stream container.
-</description>
-<disclaimer lang="en">Make sure recording streams is legal in your country.</disclaimer>
-<source>https://github.com/Dobi-Dev/plugin.video.epg.recorder</source>
-<forum>https://forum.kodi.tv/showthread.php?tid=329991</forum>
-<language>en fr de</language>
-<news>
-  1. changing argument passing to record_by_url through disk storage
-  2. adding all art info to recordings 
-</news>
-<assets>
-  <icon>icon.png</icon>
-  <screenshot>resources/screenshots/screenshot-00.jpg</screenshot>
-  <screenshot>resources/screenshots/screenshot-01.jpg</screenshot>
-  <screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
-</assets>
-</extension>
-</addon><addon id="plugin.video.epg.recorder" name="EPG Recorder" provider-name="vKo" version="1.0.7">
-<requires>
-  <import addon="xbmc.python" version="3.0.0" />
-  <import addon="script.module.xbmcswift2" />
-  <import addon="script.module.requests" />
-  <import addon="script.module.chardet" />
-  <import addon="script.module.pytz" />
-  <import addon="script.module.kodi-six" />
-  <import addon="script.module.inputstreamhelper" version="0.5.8" />
-
-</requires>
-<extension library="main.py" point="xbmc.python.pluginsource">
-  <provides>video</provides>
-</extension>
-<extension library="default.py" point="xbmc.python.script">
-    <provides>executable</provides>
-</extension>
-<extension point="kodi.context.item">
-<menu id="kodi.core.main">
-  <item library="context.py">
-    <label>IPTV Recorder Timer</label>
-    <visible>Window.isActive(tvchannels)</visible>
-  </item>
-  <item library="contextEPG.py">
-    <label>Record Programme</label>
-    <visible>Window.isActive(tvguide)</visible>
-  </item>
-</menu>
-</extension>
-<extension library="server.py" point="xbmc.service" start="login" />
-<extension point="xbmc.addon.metadata">
-  <summary lang="en">Record from IPTV Simple Client or xmltv/m3u with ffmpeg.</summary>
-  <description lang="en">
-Set your recording path and ffmpeg location.
-On Android ffmpeg will be copied to /data/data to be runnable.
-Complex stream handling might need an extra script instead of ffmpeg.
-ffmpeg simply copies the stream into a transport stream container.
-</description>
-<disclaimer lang="en">Make sure recording streams is legal in your country.</disclaimer>
-<source>https://github.com/Dobi-Dev/plugin.video.epg.recorder</source>
-<forum>https://forum.kodi.tv/showthread.php?tid=329991</forum>
-<language>en fr de</language>
-<news>First release note</news>
-<assets>
-  <icon>icon.png</icon>
-  <screenshot>resources/screenshots/screenshot-00.jpg</screenshot>
-  <screenshot>resources/screenshots/screenshot-01.jpg</screenshot>
-  <screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
-</assets>
-</extension>
-</addon><addon id="plugin.video.epg.recorder" name="EPG Recorder" provider-name="vKo" version="1.0.8">
-<requires>
-  <import addon="xbmc.python" version="3.0.0" />
-  <import addon="script.module.xbmcswift2" />
-  <import addon="script.module.requests" />
-  <import addon="script.module.chardet" />
-  <import addon="script.module.pytz" />
-  <import addon="script.module.kodi-six" />
-  <import addon="script.module.inputstreamhelper" version="0.5.8" />
-
-</requires>
-<extension library="main.py" point="xbmc.python.pluginsource">
-  <provides>video</provides>
-</extension>
-<extension library="default.py" point="xbmc.python.script">
-    <provides>executable</provides>
-</extension>
-<extension point="kodi.context.item">
-<menu id="kodi.core.main">
-  <item library="context.py">
-    <label>IPTV Recorder Timer</label>
-    <visible>Window.isActive(tvchannels)</visible>
-  </item>
-  <item library="contextEPG.py">
-    <label>Record Programme</label>
-    <visible>Window.isActive(tvguide)</visible>
-  </item>
-</menu>
-</extension>
-<extension library="server.py" point="xbmc.service" start="login" />
-<extension point="xbmc.addon.metadata">
-  <summary lang="en">Record from IPTV Simple Client or xmltv/m3u with ffmpeg.</summary>
-  <description lang="en">
-Set your recording path and ffmpeg location.
-On Android ffmpeg will be copied to /data/data to be runnable.
-Complex stream handling might need an extra script instead of ffmpeg.
-ffmpeg simply copies the stream into a transport stream container.
-</description>
-<disclaimer lang="en">Make sure recording streams is legal in your country.</disclaimer>
-<source>https://github.com/Dobi-Dev/plugin.video.epg.recorder</source>
-<forum>https://forum.kodi.tv/showthread.php?tid=329991</forum>
-<language>en fr de</language>
-<news>more cleanups: xmltv function cleanup</news>
-<assets>
-  <icon>icon.png</icon>
-  <screenshot>resources/screenshots/screenshot-00.jpg</screenshot>
-  <screenshot>resources/screenshots/screenshot-01.jpg</screenshot>
-  <screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
-</assets>
-</extension>
-</addon><addon id="plugin.video.epg.recorder" name="EPG Recorder" provider-name="vKo" version="1.0.9">
-<requires>
-  <import addon="xbmc.python" version="3.0.0" />
-  <import addon="script.module.xbmcswift2" />
-  <import addon="script.module.requests" />
-  <import addon="script.module.chardet" />
-  <import addon="script.module.kodi-six" />
-  <import addon="script.module.inputstreamhelper" version="0.5.8" />
-
-</requires>
-<extension library="main.py" point="xbmc.python.pluginsource">
-  <provides>video</provides>
-</extension>
-<extension point="kodi.context.item">
-<menu id="kodi.core.main">
-  <item library="context.py">
-    <label>IPTV Recorder Timer</label>
-    <visible>Window.isActive(tvchannels)</visible>
-  </item>
-  <item library="contextEPG.py">
-    <label>Record Programme</label>
-    <visible>Window.isActive(tvguide)</visible>
-  </item>
-</menu>
-</extension>
-<extension point="xbmc.addon.metadata">
-  <summary lang="en">Record from IPTV Simple Client or xmltv/m3u with ffmpeg.</summary>
-  <description lang="en">
-Set your recording path and ffmpeg location.
-On Android ffmpeg will be copied to /data/data to be runnable.
-Complex stream handling might need an extra script instead of ffmpeg.
-ffmpeg simply copies the stream into a transport stream container.
-</description>
-<disclaimer lang="en">Make sure recording streams is legal in your country.</disclaimer>
-<source>https://github.com/Dobi-Dev/plugin.video.epg.recorder</source>
-<forum>https://forum.kodi.tv/showthread.php?tid=329991</forum>
-<language>en fr de</language>
-<news>
-  1. removing server.py, so xmltv is initialized on first invoke only
-  2. introducing get_storage to rescan the xmltv daily
-  3. clean more leftover functions
-  4. removing dafault.py (kodi.script)
-</news>
-<assets>
-  <icon>icon.png</icon>
-  <screenshot>resources/screenshots/screenshot-00.jpg</screenshot>
-  <screenshot>resources/screenshots/screenshot-01.jpg</screenshot>
-  <screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
-</assets>
-</extension>
 </addon><addon id="plugin.video.epg.recorder" name="EPG Recorder" provider-name="vKo" version="1.1.0">
 <requires>
   <import addon="xbmc.python" version="3.0.0" />
@@ -709,6 +460,55 @@ ffmpeg simply copies the stream into a transport stream container.
 <language>en fr de</language>
 <news>
   1. fix m3u load from xmltv()
+  Todo:
+  1. prepered (but commnted out restore of playing offset after the recording)
+</news>
+<assets>
+  <icon>icon.png</icon>
+  <screenshot>resources/screenshots/screenshot-00.jpg</screenshot>
+  <screenshot>resources/screenshots/screenshot-01.jpg</screenshot>
+  <screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
+</assets>
+</extension>
+</addon><addon id="plugin.video.epg.recorder" name="EPG Recorder" provider-name="vKo" version="1.1.6">
+<requires>
+  <import addon="xbmc.python" version="3.0.0" />
+  <import addon="script.module.xbmcswift2" />
+  <import addon="script.module.requests" />
+  <import addon="script.module.chardet" />
+  <import addon="script.module.kodi-six" />
+  <import addon="script.module.inputstreamhelper" version="0.5.8" />
+
+</requires>
+<extension library="main.py" point="xbmc.python.pluginsource">
+  <provides>video</provides>
+</extension>
+<extension point="kodi.context.item">
+<menu id="kodi.core.main">
+  <item library="context.py">
+    <label>IPTV Recorder Timer</label>
+    <visible>Window.isActive(tvchannels)</visible>
+  </item>
+  <item library="contextEPG.py">
+    <label>Record Programme</label>
+    <visible>Window.isActive(tvguide)</visible>
+  </item>
+</menu>
+</extension>
+<extension point="xbmc.addon.metadata">
+  <summary lang="en">Record from IPTV Simple Client or xmltv/m3u with ffmpeg.</summary>
+  <description lang="en">
+Set your recording path and ffmpeg location.
+On Android ffmpeg will be copied to /data/data to be runnable.
+Complex stream handling might need an extra script instead of ffmpeg.
+ffmpeg simply copies the stream into a transport stream container.
+</description>
+<disclaimer lang="en">Make sure recording streams is legal in your country.</disclaimer>
+<source>https://github.com/Dobi-Dev/plugin.video.epg.recorder</source>
+<forum>https://forum.kodi.tv/showthread.php?tid=329991</forum>
+<language>en fr de</language>
+<news>
+  1. fully removed xmltv() and det rid of sqldb for channel table. Relying on externally generated channel.json from grabber.
   Todo:
   1. prepered (but commnted out restore of playing offset after the recording)
 </news>
