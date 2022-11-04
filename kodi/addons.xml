@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<addons><addon id="plugin.video.epg.recorder" version="2.0.2" name="EPG Recorder" provider-name="vKo">
+<addons><addon id="plugin.video.epg.recorder" version="2.0.3" name="EPG Recorder" provider-name="vKo">
 <requires>
   <import addon="xbmc.python" version="3.0.0" />
   <import addon="script.module.xbmcswift2" />
