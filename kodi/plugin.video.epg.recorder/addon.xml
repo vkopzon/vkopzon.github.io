@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.epg.recorder" version="20.1.4" name="EPG Recorder"
+<addon id="plugin.video.epg.recorder" version="20.1.5" name="EPG Recorder"
   provider-name="vKo">
 <requires>
   <import addon="xbmc.python" version="3.0.0" />
@@ -44,10 +44,12 @@ ffmpeg simply copies the stream into a transport stream container.
     7. Bumping EPGDB index to match Kodi 20.0
     20.1
     1. cleaning up db_folder
-    20.1.2
+    20.1.4
     1. Adding Storage
     2. get rid from xbmcswift
     4. fixing legacy warnings (on setInfo)
+    20.1.5
+    1. fix init bug of Storage
   </news>
   <assets>
     <icon>icon.png</icon>
