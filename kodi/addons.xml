@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<addons><addon id="plugin.video.epg.recorder" version="20.1.2" name="EPG Recorder" provider-name="vKo">
+<addons><addon id="plugin.video.epg.recorder" version="20.1.4" name="EPG Recorder" provider-name="vKo">
 <requires>
   <import addon="xbmc.python" version="3.0.0" />
   <import addon="script.module.xbmcswift2" />
@@ -42,10 +42,11 @@ ffmpeg simply copies the stream into a transport stream container.
     6. Sort Recordings by record time
     7. Bumping EPGDB index to match Kodi 20.0
     20.1
-    .1. cleaning up db_folder
+    1. cleaning up db_folder
     20.1.2
-    1. fix warning of typecast
-    2. gui: 'label': "Новые Фильмы" -&gt; "[COLOR blue]Vlad[/COLOR]"
+    1. Adding Storage
+    2. get rid from xbmcswift
+    4. fixing legacy warnings (on setInfo)
   </news>
   <assets>
     <icon>icon.png</icon>
@@ -54,7 +55,7 @@ ffmpeg simply copies the stream into a transport stream container.
     <screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
   </assets>
 </extension>
-</addon><addon id="skin.estuary-vko" version="20.1.0" name="vko-estuary" provider-name="vKo">
+</addon><addon id="skin.estuary-vko" version="20.1.1" name="vko-estuary" provider-name="vKo">
 	<requires>
 		<import addon="xbmc.gui" version="5.16.0" />
 	</requires>
@@ -706,6 +707,61 @@ ffmpeg simply copies the stream into a transport stream container.
     7. Bumping EPGDB index to match Kodi 20.0
     20.1
     .1. cleaning up db_folder 
+  </news>
+  <assets>
+    <icon>icon.png</icon>
+    <screenshot>resources/screenshots/screenshot-00.jpg</screenshot>
+    <screenshot>resources/screenshots/screenshot-01.jpg</screenshot>
+    <screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
+  </assets>
+</extension>
+</addon><addon id="plugin.video.epg.recorder" version="20.1.2" name="EPG Recorder" provider-name="vKo">
+<requires>
+  <import addon="xbmc.python" version="3.0.0" />
+  <import addon="script.module.xbmcswift2" />
+  <import addon="script.module.requests" />
+  <import addon="script.module.chardet" />
+  <import addon="script.module.kodi-six" />
+  <import addon="script.module.inputstreamhelper" version="0.5.8" />
+  <import addon="script.embuary.info" version="2.0.0" />
+</requires>
+<extension point="xbmc.service" library="service.py" />
+<extension point="xbmc.python.pluginsource" library="main.py">
+  <provides>video</provides>
+</extension>
+<extension point="kodi.context.item">
+  <menu id="kodi.core.main">
+    <item library="the_movie_db.py">
+      <label>Detailed Information</label>
+      <visible>String.IsEqual(ListItem.dbtype,movie) | String.IsEqual(ListItem.dbtype,tvshow) | String.IsEqual(ListItem.dbtype,season) | String.IsEqual(ListItem.dbtype,episode) | String.IsEqual(ListItem.dbtype,actor) | String.IsEqual(ListItem.dbtype,director)</visible>
+    </item>
+  </menu>
+</extension>
+<extension point="xbmc.addon.metadata">
+  <summary lang="en">Play/Record xmltv/m3u with ffmpeg using from IPTV Simple Client EPG.</summary>
+  <description lang="en">
+Set your recording path and ffmpeg location.
+On Android ffmpeg will be copied to /data/data to be runnable.
+Complex stream handling might need an extra script instead of ffmpeg.
+ffmpeg simply copies the stream into a transport stream container.
+  </description>
+  <disclaimer lang="en">Let's the game begin ;)</disclaimer>
+  <source>https://github.com/Dobi-Dev/plugin.video.epg.recorder</source>
+  <forum>https://forum.kodi.tv/showthread.php?tid=329991</forum>
+  <language>en fr de</language>
+  <news>
+    1. fixing add2history type: from p['ptitle'] to prog['ptitle']
+    2. Introducing the Mark as watched/unwatched
+    3. Bug fixes in (2)
+    4. Timeshift fix
+    5. Add refresh after mark as watched/unwatched
+    6. Sort Recordings by record time
+    7. Bumping EPGDB index to match Kodi 20.0
+    20.1
+    .1. cleaning up db_folder
+    20.1.2
+    1. fix warning of typecast
+    2. gui: 'label': "Новые Фильмы" -&gt; "[COLOR blue]Vlad[/COLOR]"
   </news>
   <assets>
     <icon>icon.png</icon>
