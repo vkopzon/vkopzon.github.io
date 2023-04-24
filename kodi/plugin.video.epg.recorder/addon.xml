@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.epg.recorder" version="20.1.13" name="EPG Recorder"
+<addon id="plugin.video.epg.recorder" version="20.1.14" name="EPG Recorder"
   provider-name="vKo">
 <requires>
   <import addon="xbmc.python" version="3.0.0" />
@@ -61,7 +61,7 @@ ffmpeg simply copies the stream into a transport stream container.
     1. more fixes + some play_url and make_list restracturing
     20.1.11
     1. tem release to debug android program duration issue
-    20.1.12
+    20.1.13
     1. fixing negative dtl
     2. removing series from listing
     3. adding year to history and recording listings
@@ -69,6 +69,10 @@ ffmpeg simply copies the stream into a transport stream container.
     5. play from position doesn't works for history
     6. named_storage completely rearchitectured
     7. removed usage of POS_SUFFIX files (all data is saved in named_storage or nfo files)
+    20.1.14
+    1. performance issue of make_list fixed
+    20.1.15
+    1. performance of recordings listing
   </news>
   <assets>
     <icon>icon.png</icon>
