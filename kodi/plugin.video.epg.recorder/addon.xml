@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.epg.recorder" version="20.2.1" name="EPG Recorder"
+<addon id="plugin.video.epg.recorder" version="21.0.0" name="EPG Recorder"
   provider-name="vKo">
 <requires>
   <import addon="xbmc.python" version="3.0.0" />
@@ -75,6 +75,9 @@ ffmpeg simply copies the stream into a transport stream container.
     1. fix of mark_as_watched/unwatched
     20.2.1
     1. dumping jsons in ascii format
+    21.0.0
+    1. fixing play/rec offsets
+    2. fix epg recorder
   </news>
   <assets>
     <icon>icon.png</icon>
